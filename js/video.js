@@ -55,28 +55,30 @@ document.querySelector("#skip").addEventListener("click", function () {
 
 // 静音按钮
 document.querySelector("#mute").addEventListener("click", function () {
-    video.muted = true;
-    this.textContent = "muted";
-    slider.value=0
+    // video.muted = true;
+    // this.textContent = "Unmute";
+    // slider.value=0
 
-    // if (video.muted == true) {
-    //     video.muted=false;
-    //     this.textContent = "mute";
-    // } else {
-    //     video.muted = true;
-    //     this.textContent = "muted";
-    // }
+    if (video.muted == true) {
+         video.muted=false;
+         this.textContent = "Mute";
+     } else {
+         video.muted = true;
+         this.textContent = "Unmute";
+     }
 
 });
 
 // 音量滑块
 document.querySelector("#slider").addEventListener("change", function () {
-    if (this.value > 0) {
-        video.muted = false;   //取消静音状态
-        button_mute.textContent = "mute"
-    }
-    // video.volume = this.value / 100;
-    video.volume = slider.value / 100;
+    //if (this.value > 0) {
+        //video.muted = false;   //取消静音状态
+        //button_mute.textContent = "Mute"
+    //}
+    video.volume = this.value / 100;
+    // video.volume = slider.value / 100;
+    console.log(video.volume)
+    document.getElementById("volume").textContent = this.value + "%";
 });
 
 // 复古和原始样式
